@@ -220,7 +220,7 @@ include 'sidebar.php';
                     <tr>
                       <th>Serial No.</th>
                       <th>Product Name</th>
-                      <th>Price</th>
+                      <th>Pric</th>
                       
                     </tr>
                   </thead>
