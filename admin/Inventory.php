@@ -1,9 +1,34 @@
+<?php
+
+include "../db.php";
+
+$sql = "SELECT * FROM brand ";
+$result = $conn->query($sql);
+
+$brands = array();
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  
+  while($row = $result->fetch_assoc()) {
+
+    array_push($brands,$row);
+
+  }
+} 
+
+
+// var_dump($brands[0]['product_name']);
+
+// die();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sell</title>
+  <title>Inventory</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -59,11 +84,30 @@ include 'sidebar.php';
         <!-- Info boxes -->
         <div class="row">
           
-        <div class="col-md-3 text-center">
-            <div class="progress-bar position"></div>
-
+       
+            <!-- <div class="progress-bar position"></div> -->
             
-        </div>
+
+            <?php 
+
+              for($i=0;$i<count($brands);$i++){
+
+            ?>
+           <div class="col-md-3 text-center bg-success mr-2">
+              <h1>
+                <?php  
+                    echo $brands[$i]['brand_name']; 
+                ?>
+              </h1>
+              
+            </div> 
+                
+            <?php 
+              }
+
+            ?>
+            
+        
         
         </div>
         <!-- /.row -->
