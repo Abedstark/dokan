@@ -56,6 +56,24 @@ include 'sidebar.php';
       <div class="container-fluid">
         <!-- Info boxes -->
         <div class="row">
+              <div class="col-md-12 col-lg-6 col-xl-4">
+                <div class="card mb-2 bg-gradient-dark" style="height: 252px;">
+                  <!-- <img class="card-img-top" src="./dist/img/photo1.png" alt="Dist Photo 1"> -->
+                  <div class="card-img-overlay d-flex flex-column justify-content-end">
+                    <h5 class="card-title text-primary text-white">Card Title</h5>
+                    <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
+                    <a href="#" class="text-white">Last update 2 mins ago</a>
+                  </div>
+                </div>
+              </div>
+                <div class="d-flex align-items-center">
+                
+                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-secondary">
+                 <i class="fas fa-plus"></i>
+                </button>
+
+                </div>
+               
           
           <!-- /.col -->
         
@@ -69,7 +87,28 @@ include 'sidebar.php';
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
+  <!-- modal -->
+  <div class="modal fade" id="modal-secondary" style="display: none;" aria-modal="true" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content bg-secondary" style="height:350px;">
+            <div class="modal-header">
+              <h4 class="modal-title">Secondary Modal</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>One fine body…</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-outline-light">Save changes</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
 
   <!-- /.control-sidebar -->
 <?php

@@ -53,6 +53,7 @@ if ($resulta->num_rows > 0) {
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="./plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -103,6 +104,12 @@ include 'sidebar.php';
                       <i class="fas fa-edit"></i>
                       Data Input
                     </h3>
+                    <button type="button" class="btn btn-success swalDefaultSuccess" style="display: none ;">
+                  Launch Success Toast
+                </button>
+                <button type="button" class="btn btn-danger swalDefaultError" style="display: none ;">
+                  Launch Error Toast
+                </button>
                   </div>
                   <div class="card-body">
                     
@@ -311,13 +318,14 @@ include 'sidebar.php';
 
 
                                                 ?>
-                                                <tr>
+                                                <tr data-id="<?php echo $products[$i]['id']; ?>">
                                                   <td class="productname"><?php echo $products[$i]['product_name']; ?></td>
                                                   <td class="model"><?php echo $products[$i]['model']; ?></td>
                                                   <td class="dealprice"><?php echo $products[$i]['deal_price']; ?></td>
                                                   <td class="brandname"><?php echo $products[$i]['brand_name']; ?></td>
                                                   <td class="sellprice"><?php echo $products[$i]['sell_price']; ?></td>
                                                   <td class="quantity"><?php echo $products[$i]['quantity']; ?></td>
+                                                  
                                                   <td>
                                                     <button class="vip">Update</button>
                                                   </td>
@@ -342,17 +350,17 @@ include 'sidebar.php';
                 <!-- /.card -->
               </div>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-12 updateproductform" style="display: none;">
                                   <!-- general form elements -->
                                   <div class="card card-primary">
                                   
                                   
                                     <!-- form start -->
-                                      <form action="addproduct.php" method="POST">
+                                      <form action="updateproduct.php" method="POST">
                                         <div class="card-body">
                                           <div class="form-group" data-select2-id="29">
                                               <label>Brand Name</label>
-                                              <select class="form-control select2 select2-hidden-accessible brand_select"  style="width: 100%;" name="brandid">
+                                              <select class="form-control select2 select2-hidden-accessible brand_select" disabled  style="width: 100%;" name="brandid">
                                               <?php 
 
                                                     for($i=0;$i<count($brands);$i++){
@@ -396,6 +404,7 @@ include 'sidebar.php';
                                             <input type="number" class="form-control qntity" id="exampleInputPassword1" placeholder="Quantity" name="quantity">
                                           </div>
                                         </div>
+                                        <input type="hidden" value="" class="idinput" name="id">
 
                                         <div class="card-footer">
                                           <button type="submit" class="btn btn-primary">Submit</button>
@@ -427,6 +436,7 @@ include 'footer.php';
 
 ?>
 </div>
+
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
@@ -453,5 +463,63 @@ include 'footer.php';
 <!-- <script src="dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard2.js"></script>
+<script src="./plugins/sweetalert2/sweetalert2.min.js"></script>
+<script>
+
+  $(window).on('load',function(){
+
+      var x = '<?php echo $_GET['songbad'];?>';
+      var y = parseInt(x);
+      console.log(y);
+      if(y==1){
+        $('.swalDefaultSuccess').trigger('click');
+      }
+      else if(y==2){ 
+
+        $('.swalDefaultError').trigger('click');
+
+      }
+      
+      
+    
+
+    
+  });
+
+  
+    
+  
+
+  $(function() {
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+
+    
+
+    $('.swalDefaultSuccess').click(function() {
+      Toast.fire({
+        icon: 'success',
+        title: 'Updated Successfully'
+      })
+    });
+
+    $('.swalDefaultError').click(function() {
+      Toast.fire({
+        icon: 'error',
+        title: 'Update Unsuccessful'
+      })
+    });
+   
+
+   
+
+   
+    
+  });
+</script>
 </body>
 </html>
