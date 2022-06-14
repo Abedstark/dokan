@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sell</title>
+  <title>Diary</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -13,6 +13,23 @@
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="./plugins/summernote/summernote-bs4.min.css">
+
+  <style>
+    #note_write {
+ -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+/* background-color: white; */
+background-color: -moz-field;
+border: 1px solid darkgray;
+box-shadow: 1px 1px 1px 0 lightgray inset;
+font: -moz-field;
+font: -webkit-small-control;
+margin-top: 5px;
+padding: 2px 3px;
+width: 398px;
+}
+  </style>
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -73,6 +90,8 @@ include 'sidebar.php';
                 </button>
 
                 </div>
+
+                
                
           
           <!-- /.col -->
@@ -90,7 +109,7 @@ include 'sidebar.php';
   <!-- modal -->
   <div class="modal fade" id="modal-secondary" style="display: none;" aria-modal="true" role="dialog">
         <div class="modal-dialog">
-          <div class="modal-content bg-secondary" style="height:350px;">
+          <div class="modal-content bg-secondary" id="note_write" style="height:350px;">
             <div class="modal-header">
               <h4 class="modal-title">Secondary Modal</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -142,5 +161,6 @@ include 'footer.php';
 <!-- <script src="dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard2.js"></script>
+<script src="./plugins/summernote/summernote-bs4.min.js"></script>
 </body>
 </html>
