@@ -109,15 +109,15 @@ include 'sidebar.php';
   <!-- modal -->
   <div class="modal fade" id="modal-secondary" style="display: none;" aria-modal="true" role="dialog">
         <div class="modal-dialog">
-          <div class="modal-content bg-secondary" id="note_write" style="height:350px;">
+          <div class="modal-content bg-secondary" id="note_write" style="height:470px;">
             <div class="modal-header">
               <h4 class="modal-title">Secondary Modal</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
             </div>
-            <div class="modal-body">
-              <p>One fine body…</p>
+            <div class="modal-body" id="summernote">
+              
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
@@ -162,5 +162,22 @@ include 'footer.php';
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard2.js"></script>
 <script src="./plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+  $('#summernote').summernote({
+        // placeholder: 'Hello Bootstrap 4',
+        
+        tabsize: 2,
+        height: 250,
+        toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic']],
+    // ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    // ['color', ['color']],
+    ['para', ['paragraph']],
+    ['height', ['height']]
+  ]
+      });
+</script>
 </body>
 </html>

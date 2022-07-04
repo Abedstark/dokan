@@ -166,7 +166,7 @@ include 'sidebar.php';
 
               <div class="info-box-content">
                 <span class="info-box-text">
-                <a href='diary.php'>Diary</a>
+                <a href='dairy.php'>Dairy</a>
                 </span>
                
               </div>
